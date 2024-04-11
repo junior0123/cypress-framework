@@ -4,12 +4,23 @@
   "description": "Is an automation framework for testing using cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate-report": "allure generate allure-results -o allure-report --clean",
+    "open-report": "npx allure open",
+    "execute-tests": "npx cypress run --headed --env allure=true",
+    "clean-report": "rimraf ./allure-report && rimraf ./allure-results",
+    "test":"npm run clean-report && npm run execute-tests && npm run generate-report && npm run open-report"
+
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.7.2"
+    "allure-cypress": "^2.15.1",
+    "cypress": "^13.7.2",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.28.0"
   }
 }
