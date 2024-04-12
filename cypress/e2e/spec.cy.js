@@ -1,9 +1,9 @@
-const { LoginMethods } = require("./pages/login.methods")
+const { LoginMethods } = require("./pages/login/login.methods")
 
 describe('template spec', () => {
   it('passes', () => {
-    const username = "juan1234.";
-    const password = "juan1234.";
+    const username = "";
+    const password = "";
     cy.visit('https://www.demoblaze.com/')
     cy.get('a[data-target="#logInModal"]').click()
     LoginMethods.login(username, password)
