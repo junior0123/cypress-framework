@@ -2,11 +2,11 @@ const { CommonPageData } = require("../pages/common-page/common-page.data")
 const { CommonPageMethods } = require("../pages/common-page/common-page.methods")
 const { SignupMethods } = require("../pages/signup/signup.methods")
 const { Logger } = require("../utils/logger")
+const username = CommonPageMethods.generateStringRandom(7);
+const password = CommonPageMethods.generateStringRandom(10);
+describe('Register and authentication', () => {
+    it(CommonPageData.testSuites.registerAndAuthentication, () => {
 
-describe('Register and authentication', ()=>{
-    it(CommonPageData.testSuites.registerAndAuthentication,()=> {
-const username = "Juan1234..";
-const password = "Juan1234..";
 
         Logger.stepNumber(1)
         Logger.step("Navigate to home page")
