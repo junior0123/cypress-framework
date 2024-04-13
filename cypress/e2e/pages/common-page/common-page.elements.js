@@ -17,8 +17,9 @@ export class CommonPageElements {
                 return cy.get('a[data-target="#logInModal"]');
             },
             get signup() {
-                cy.get('a[data-target="#signInModal"]');
+                return cy.contains('a', 'Sign up');
             }
+
 
         }
     }

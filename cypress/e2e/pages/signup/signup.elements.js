@@ -2,20 +2,20 @@ export class SignupElements {
     static get textBoxes() {
         return {
             get username() {
-                cy.get('input#sign-username');
+                return cy.get('input#sign-username',{timeout:2000});
             },
             get password() {
-                cy.get('input#sign-password');
+                return cy.get('input#sign-password',{timeout:2000});
             }
         }
     }
     static get buttons() {
         return{
             get close() {
-                cy.contains('button', 'Close').eq(1);
+                return cy.contains('button', 'Close').eq(1);
             },
             get signup() {
-                cy.contains('button', 'Sign up');
+                return cy.contains('button', 'Sign up');
             }
         }
     }
