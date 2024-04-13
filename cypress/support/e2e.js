@@ -1,2 +1,3 @@
 import './commands'
-import "allure-cypress/commands";
+import '@shelex/cypress-allure-plugin';
+//import "allure-cypress/commands";
