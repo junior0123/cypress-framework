@@ -4,6 +4,8 @@ const { SignupMethods } = require("../pages/signup/signup.methods")
 const { Logger } = require("../utils/logger")
 const username = CommonPageMethods.generateStringRandom(7);
 const password = CommonPageMethods.generateStringRandom(10);
+const existingUsername = "juan1234.";
+
 describe('Register and authentication', () => {
     it(CommonPageData.testSuites.registerAndAuthentication, () => {
 
@@ -26,5 +28,28 @@ describe('Register and authentication', () => {
         SignupMethods.clickOnSignupButton();
         Logger.verification('Verification that the message is showed ')
         SignupMethods.verifySignupSuccesfulMessageIsDisplayed()
+    });
+
+    it("Invalid user", () => {
+
+
+        Logger.stepNumber(1)
+        Logger.step("Navigate to home page")
+        CommonPageMethods.navigateToDemoBlaze();
+
+        Logger.stepNumber(2)
+        Logger.step("Click on signup Option")
+        CommonPageMethods.clickOnSignupOption();
+
+        Logger.stepNumber(3)
+        Logger.step("Complete mandatory data with invalid data ")
+        SignupMethods.insertUsername(existingUsername);
+        SignupMethods.insertPassword(password);
+
+        Logger.stepNumber(4)
+        Logger.step("Click on Signup button")
+        SignupMethods.clickOnSignupButton();
+        Logger.verification('Verification that the message is showed ')
+        SignupMethods.verifyThatIsUserAlreadyExistMessageIsDisplayed();
     })
 })
