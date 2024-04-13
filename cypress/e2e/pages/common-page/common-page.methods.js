@@ -46,4 +46,7 @@ export class CommonPageMethods {
 
         return resultado;
     }
+    static verifySignedUser(username) {
+        CommonPageElements.signedUser.should("have.text",`Welcome ${username}`)
+    }
 }

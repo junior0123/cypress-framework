@@ -6,7 +6,8 @@ export class CommonPageData{
         return{
             registerAndAuthentication: "Register and Authentication",
             catalogAndPurchase: "Catalog and Purchase",
-            
+            login: "Login"
+
         }
     }
 }
