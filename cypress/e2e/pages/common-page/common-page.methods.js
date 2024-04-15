@@ -3,7 +3,8 @@ import { CommonPageElements } from "./common-page.elements";
 
 export class CommonPageMethods {
     static navigateToDemoBlaze() {
-        cy.clearCookies();
+        cy.clearAllCookies();
+        cy.clearLocalStorage();
         cy.visit(CommonPageData.url);
     }
     static clickOnHomeOption() {
@@ -20,7 +21,7 @@ export class CommonPageMethods {
     }
     static clickOnCartOption() {
         CommonPageElements.topMenu.cart.click();
-        cy.on('uncaught:exception', (err,runnable) => {
+        cy.on('uncaught:exception', (err, runnable) => {
             return false;
         })
 
@@ -50,6 +51,14 @@ export class CommonPageMethods {
         return resultado;
     }
     static verifySignedUser(username) {
-        CommonPageElements.signedUser.should("have.text",`Welcome ${username}`)
+        CommonPageElements.signedUser.should("have.text", `Welcome ${username}`)
+    }
+    static logout() {
+        cy.get('body').then($body => {
+            if ($body.find('#logout2').length > 0) {
+                CommonPageElements.topMenu.logout.click()
+            }
+        })
+
     }
 }

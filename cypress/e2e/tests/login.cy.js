@@ -24,6 +24,10 @@ describe(CommonPageData.testSuites.login, () => {
         LoginMethods.login(username, password)
         Logger.verification('Verification that the welcome message is showed')
         CommonPageMethods.verifySignedUser(username)
+
+        Logger.stepNumber(4)
+        Logger.step("Logout")
+        CommonPageMethods.logout()
     });
 
     it('Login with invalid credentials', () => {
