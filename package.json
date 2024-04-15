@@ -8,10 +8,11 @@
     "open-report": "npx allure open",
     "execute-tests": "npx cypress run --headed --env allure=true || exit 0",
     "clean-report": "rimraf ./allure-report && rimraf ./allure-results",
-    "test": "npm-run-all --sequential clean-report execute-tests generate-report open-report",
+    "tests": "npm-run-all --sequential clean-report execute-tests generate-report open-report",
     "test2": "npx cypress run --headed --env allure=true --spec 'cypress/e2e/tests/catalog-purchases.cy.js' || exit 0",
-    "specific-test": "npm-run-all --sequential clean-report test2 generate-report open-report"
+    "specific-test": "npm-run-all --sequential clean-report test2 generate-report open-report",
 
+    "cy:parallel" : "cypress-parallel -s execute-tests -t 2 -d ./cypress/e2e/tests"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,8 @@
     "rimraf": "^5.0.5"
   },
   "dependencies": {
-    "cypress": "^12.13.0"
+    "cypress": "^12.13.0",
+    "cypress-parallel": "^0.14.0",
+    "save-dev": "^0.0.1-security"
   }
 }
