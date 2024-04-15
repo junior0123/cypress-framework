@@ -5,6 +5,8 @@ const { LoginMethods } = require("../pages/login/login.methods");
 const { SignupMethods } = require("../pages/signup/signup.methods")
 const { Logger } = require("../utils/logger")
 const { HomeMethods } = require("../pages/home/home.methods");
+const { ProductDetailsMethods } = require("../pages/product-details/product-details.methods");
+const { CartMethods } = require("../pages/cart/cart.methods");
 const username = LoginData.validCredentials.username;
 const password = LoginData.validCredentials.password;
 const invalidUsername = LoginData.invalidCredentials.username;
@@ -40,7 +42,50 @@ describe(CommonPageData.testSuites.catalogAndPurchase, () => {
         HomeMethods.verifyProductDisplayed('Apple monitor 24')
         Logger.verification("Verify that AsusMonitor is displayed to the user")
         HomeMethods.verifyProductDisplayed('ASUS Full HD')
-        
-        
+
+
+    });
+    it('Add product to cart', () => {
+
+        Logger.stepNumber(1)
+        Logger.step("Navigate to DemoBlaze page")
+        CommonPageMethods.navigateToDemoBlaze();
+
+        Logger.subStep("Click on Login Option")
+        Logger.stepNumber(2)
+        Logger.step("Click on login Option")
+        CommonPageMethods.clickOnLoginOption();
+
+        Logger.stepNumber(3)
+        Logger.step("Complete mandatory data")
+        LoginMethods.login(username, password)
+        Logger.verification('Verification that the welcome message is showed')
+        CommonPageMethods.verifySignedUser(username)
+
+        Logger.stepNumber(4)
+        Logger.step("Navigate to Home Page")
+        CommonPageMethods.clickOnHomeOption()
+
+        Logger.stepNumber(5)
+        Logger.step("Select monitors category")
+        HomeMethods.clickOnMonitorsOption()
+       
+        Logger.stepNumber(6)
+        Logger.step("Click on specific product")
+        HomeMethods.clickOnProductLink("Apple monitor 24")
+
+        Logger.stepNumber(7)
+        Logger.step("Verify that the product pase is displayed")
+        ProductDetailsMethods.verifyProductDetailsPageIsDisplayed()
+
+        Logger.stepNumber(8)
+        Logger.step("Click on add to cart")
+        ProductDetailsMethods.clickOnAddToCartButton()
+
+        Logger.stepNumber(9)
+        Logger.step("verificar confirmation message is displayed")
+        ProductDetailsMethods.verifyProductAddedMessage()
+        CommonPageMethods.clickOnCartOption()
+        CartMethods.verifyProductAdded("Apple monitor 24")
     });
 })
