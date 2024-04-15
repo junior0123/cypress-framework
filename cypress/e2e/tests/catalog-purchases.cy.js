@@ -90,6 +90,10 @@ describe(CommonPageData.testSuites.catalogAndPurchase, () => {
         ProductDetailsMethods.verifyProductAddedMessage()
         CommonPageMethods.clickOnCartOption()
         CartMethods.verifyProductAdded("Apple monitor 24")
+
+        Logger.step("Postcondition, empty card and logout")
+        CartMethods.emptyCart(username, password)
+        CommonPageMethods.logout()
     });
 
     it('Make a purchase', () => {
