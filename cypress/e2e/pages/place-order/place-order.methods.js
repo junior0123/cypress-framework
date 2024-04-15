@@ -5,24 +5,32 @@ export class PlaceOrderMethods {
         PlaceOrderElements.textBoxes.name.invoke('val', name);
     }
     static insertCountry(country) {
-        PlaceOrderElements.textBoxes.name.invoke('val', country);
+        PlaceOrderElements.textBoxes.country.invoke('val', country);
     }
     static insertCity(city) {
-        PlaceOrderElements.textBoxes.name.invoke('val', city);
+        PlaceOrderElements.textBoxes.city.invoke('val', city);
     }
     static insertCreditCard(creditCard) {
-        PlaceOrderElements.textBoxes.name.invoke('val', creditCard);
+        PlaceOrderElements.textBoxes.creditCard.invoke('val', creditCard);
     }
     static insertMonth(month) {
-        PlaceOrderElements.textBoxes.name.invoke('val', month);
+        PlaceOrderElements.textBoxes.month.invoke('val', month);
     }
     static insertYear(year) {
-        PlaceOrderElements.textBoxes.name.invoke('val', year);
+        PlaceOrderElements.textBoxes.year.invoke('val', year);
     }
     static clickOnCloseButton(){
         PlaceOrderElements.buttons.close.click();
     }
     static clickOnPurchaseButton() {
         PlaceOrderElements.buttons.purchase.click();
+    }
+    static insertOrdenInformation(data) {
+        this.insertName(data.name)
+        this.insertCity(data.city)
+        this.insertCountry(data.country)
+        this.insertCreditCard(data.creditCardNumber)
+        this.insertMonth(data.month)
+        this.insertYear(data.year)
     }
 }

@@ -8,8 +8,8 @@ export class LoginData {
 
     static get validCredentials() {
         return {
-            username: '',
-            password: ''
+            username: 'juan1234.',
+            password: 'juan1234.'
         }
     }
 }

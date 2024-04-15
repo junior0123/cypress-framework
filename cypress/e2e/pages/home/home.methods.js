@@ -17,4 +17,7 @@ export class HomeMethods {
     static verifyProductDisplayed(productName) {
         HomeElements.getProduct(productName).should('be.visible')
     }
+    static verifyHomePageIsShow() {
+        cy.url().should('include', 'index.html')
+    }
 }

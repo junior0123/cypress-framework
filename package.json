@@ -9,7 +9,7 @@
     "execute-tests": "npx cypress run --headed --env allure=true || exit 0",
     "clean-report": "rimraf ./allure-report && rimraf ./allure-results",
     "test": "npm-run-all --sequential clean-report execute-tests generate-report open-report",
-    "test2": "npx cypress run --headed --env allure=true --spec 'cypress/e2e/tests/register-and-authentication.cy.js' || exit 0",
+    "test2": "npx cypress run --headed --env allure=true --spec 'cypress/e2e/tests/catalog-purchases.cy.js' || exit 0",
     "specific-test": "npm-run-all --sequential clean-report test2 generate-report open-report"
 
   },
